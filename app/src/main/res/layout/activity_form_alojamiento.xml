@@ -3,7 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".FormEditarAlojamientoActivity">
 
@@ -26,17 +26,20 @@
             android:hint="Precio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></EditText>
-        <CheckBox
-            android:id="@+id/poseeInternet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint=" Posee internet"></CheckBox>
-        <Switch
-            android:text="Permite mascotas?"
-            android:textOff="NO Permite mascotas"
-            android:textOn="SI Permite mascotas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Switch>
+
+    <CheckBox
+        android:id="@+id/poseeInternet"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:hint=" Posee internet"></CheckBox>
+
+    <Switch
+        android:id="@+id/mascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Permite mascotas?"
+        android:textOff="NO Permite mascotas"
+        android:textOn="SI Permite mascotas"></Switch>
         <Spinner
             android:id="@+id/cmbTipoPropiedad"
             android:layout_width="match_parent"
@@ -50,54 +53,120 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_weight="2"
-            android:layout_gravity="start"
-            android:text="Calificacion"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"></TextView>
 
-        <RatingBar
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:max="5"
-            android:min="0"
-            android:numStars="5"></RatingBar>
-    </LinearLayout>
-        <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_weight="3">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Alquilada"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:ellipsize="marquee"
+                    android:text="Si"></RadioButton>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:text="No">
+
+                </RadioButton>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="3">
+
             <TextView
-                android:text="Presione buscar para ver en el mapa"
-                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text=" Calificacion "
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"></TextView>
+
+            <RatingBar
+                android:id="@+id/calificacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:max="5"
+                android:min="0"
+                android:numStars="5"></RatingBar>
+        </LinearLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtLatitud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:hint="latitud"></EditText>
+
+                <EditText
+                    android:id="@+id/txtLongitud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:hint="longitud"></EditText>
+            </LinearLayout>
+            <TextView
+                android:text="Presione buscar para ver en el mapa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"></TextView>
             <Button
                 android:id="@+id/btnBuscarCoordenadas"
                 android:text="Buscar Coordenadas"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"></Button>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                ></Button>
+            <Button
+                android:id="@+id/btnGuardarPropiedad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="Guardar"></Button>
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="Cancelar"></Button>
         </LinearLayout>
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_weight="3"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_gravity="bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:text="Guardar"></Button>
-        <Button
-            android:layout_gravity="bottom"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"></Button>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
     </LinearLayout>
-    </LinearLayout>
+</LinearLayout>
